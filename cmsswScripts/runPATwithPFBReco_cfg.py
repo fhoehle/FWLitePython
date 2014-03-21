@@ -1,4 +1,13 @@
 import FWCore.ParameterSet.Config as cms
+from FWCore.ParameterSet.VarParsing import VarParsing
+options = VarParsing ('analysis')
+options.register ('eventsToProcess',
+                   '',
+                   VarParsing.multiplicity.list,
+                   VarParsing.varType.string,
+                   "Events to process")
+options.register('runOnData',False,VarParsing.multiplicity.singleton,VarParsing.varType.bool,'runOnData')
+options.parseArguments()
 
 process = cms.Process("PAT")
 
@@ -40,8 +49,11 @@ process.out = cms.OutputModule("PoolOutputModule",
 process.outpath = cms.EndPath(process.out)
 # load the PAT config
 process.load("PhysicsTools.PatAlgos.patSequences_cff")
-
-
+if options.runOnData:
+  from PhysicsTools.PatAlgos.tools.coreTools import runOnData
+  runOnData(process, names = [ 'All' ])
+  process.source.fileNames = cms.untracked.vstring('/store/data/Run2012A/MultiJet/AOD/22Jan2013-v1/20000/0036C47E-0B74-E211-B992-00266CF32684.root')
+  process.out.fileName=cms.untracked.string('MultiJet-Run2012A_patTuple.root')
 # Configure PAT to use PF2PAT instead of AOD sources
 # this function will modify the PAT sequences.
 from PhysicsTools.PatAlgos.tools.pfTools import *
