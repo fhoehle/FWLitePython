@@ -7,6 +7,7 @@ files = {
     ,"color":ROOT.kBlack+1
     ,"addOptions":"runOnData=True"
     ,"crabConfig":{
+          "CMSSW":{"lumis_per_job":5,"total_number_of_lumis" : 100}
           #"CMSSW":{"number_of_jobs":1500}
           #"GRID":{"se_white_list":"T2_DE_RWTH"}
     }
