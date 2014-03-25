@@ -22,6 +22,7 @@ files = {
     ,"crabConfig":{
           #"CMSSW":{"number_of_jobs":1500}
           #"GRID":{"se_white_list":"T2_DE_RWTH"}
+          'USER':{"publish_data": 1,"publish_data_name" : "BScSkim_TTTTJets"}
     }
   }
   ,'TTJets_TuneZ2star_8TeV-madgraph-tauola__Summer12-PU_S8_START52_V9-v1__AODSIM':{
@@ -34,6 +35,7 @@ files = {
     ,"crabConfig":{
           #"CMSSW":{"number_of_jobs":1500}
           #"GRID":{"se_white_list":"T2_DE_RWTH"}
+          'USER':{"publish_data": 1,"publish_data_name" : "BScSkim_TTJets"}
     }
   }
 }
