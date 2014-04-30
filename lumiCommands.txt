@@ -1,0 +1,2 @@
+lumiContext.py -i MultiJet__Run2012A-22Jan2013-v1__AOD_JSON.txt hltbyls  --name "HLT_IsoMu24_eta2p1_v*" >& MultiJet__Run2012A-22Jan2013-v1__AOD_JSON.txt_lumiContent_HLT_IsoMu24_eta2p1_v.txt 
+pixelLumiCalc.py recorded -i MultiJet__Run2012A-22Jan2013-v1__AOD_JSON.txt --hltpath "HLT_IsoMu24_eta2p1_v*" &> MultiJet__Run2012A-22Jan2013-v1__AOD_JSON.txt_pixelLumi_HLT_IsoMu24_eta2p1_v.txt
