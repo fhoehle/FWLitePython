@@ -6,6 +6,7 @@ muonsPtHist = ROOT.TH1D("muonsPtHist","muonsPtHist",200,0,200)
 ####
 events = Events('/user/hoehle/CMSSW_5_3_16/FWLitePython/cmsswScripts/MultiJet-Run2012A_patTuple.root')
 ###
+#lala
 for i,event in enumerate(events):
   event.getByLabel(muonsLabel,muonsHandle)
   muons = muonsHandle.product()
