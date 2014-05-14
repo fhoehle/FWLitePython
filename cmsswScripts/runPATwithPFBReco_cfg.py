@@ -92,6 +92,8 @@ process.p = cms.Path(
 #    + getattr(process,"patPF2PATSequence"+postfix2)
 )
 
+
+
 # Add PF2PAT output to the created file
 from PhysicsTools.PatAlgos.patEventContent_cff import patEventContentNoCleaning,patExtraAodEventContent
 #process.load("CommonTools.ParticleFlow.PF2PAT_EventContent_cff")
@@ -100,7 +102,11 @@ process.out.outputCommands = cms.untracked.vstring('drop *',
                                                    'keep recoPFCandidates_particleFlow_*_*',
                                                    *(patEventContentNoCleaning+patExtraAodEventContent ))
 
-
+#########################################################
+#########################################################
+########### configuration
+#########################################################
+#########################################################
 # top projections in PF2PAT:
 getattr(process,"pfNoPileUp"+postfix).enable = True
 getattr(process,"pfNoMuon"+postfix).enable = True
