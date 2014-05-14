@@ -23,5 +23,5 @@ process.triggerCheck = cms.EDFilter("TriggerResultsFilter",
     throw = cms.bool(False),
     daqPartitions = cms.uint32(1)
 )
-
+process.source.fileNames = ['/store/data/Run2012A/SingleMu/AOD/22Jan2013-v1/20000/002F5062-346F-E211-BF00-1CC1DE04DF20.root']
 process.p += process.triggerCheck

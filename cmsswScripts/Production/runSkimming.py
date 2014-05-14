@@ -7,7 +7,7 @@ sys.path.append(os.getenv('CMSSW_BASE')+'/MyCMSSWAnalysisTools/Tools')
 import  cmsswAnalysisTools
 import samples
 print "executing "," ".join(sys.argv)
-cfg = os.getenv('CMSSW_BASE')+'/FWLitePython/cmsswScripts/runPATwithPFBReco_cfg.py'
+cfg = os.getenv('CMSSW_BASE')+'/FWLitePython/cmsswScripts/runPATwithPFBReco_Skim.py'
 myAnalysis = cmsswAnalysisTools.cmsswAnalysis(samples.files,cfg)
 myAnalysis.readOpts()
 myAnalysis.startAnalysis()
