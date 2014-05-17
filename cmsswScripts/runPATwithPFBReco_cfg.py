@@ -1,4 +1,5 @@
 import FWCore.ParameterSet.Config as cms
+import sys
 from FWCore.ParameterSet.VarParsing import VarParsing
 options = VarParsing ('analysis')
 options.register ('eventsToProcess',
@@ -7,8 +8,17 @@ options.register ('eventsToProcess',
                    VarParsing.varType.string,
                    "Events to process")
 options.register('runOnData',False,VarParsing.multiplicity.singleton,VarParsing.varType.bool,'runOnData')
+options.register('runRange','',VarParsing.multiplicity.singleton,VarParsing.varType.string,'runRange used for running on data to estimate trigger')
+print "args ",sys.argv
 options.parseArguments()
-
+import re
+reRunRange = re.match('^([0-9]+)-([0-9]+)$',options.runRange)
+print "options.runRange",options.runRange
+minRun = None ; maxRun = None
+if options.runOnData:
+  if not reRunRange or len(reRunRange.groups()) != 2 :
+    sys.exit('runRange wrong should be 123-234')
+  minRun=int(reRunRange.group(1));maxRun=int(reRunRange.group(2))
 process = cms.Process("PAT")
 
 ## MessageLogger
@@ -51,8 +61,6 @@ process.outpath = cms.EndPath(process.out)
 # load the PAT config
 process.load("PhysicsTools.PatAlgos.patSequences_cff")
 if options.runOnData:
-  from PhysicsTools.PatAlgos.tools.coreTools import runOnData
-  runOnData(process, names = [ 'All' ])
   process.source.fileNames = cms.untracked.vstring('/store/data/Run2012A/MultiJet/AOD/22Jan2013-v1/20000/0036C47E-0B74-E211-B992-00266CF32684.root')
   process.out.fileName=cms.untracked.string('MultiJet-Run2012A_patTuple.root')
 # Configure PAT to use PF2PAT instead of AOD sources
@@ -61,7 +69,12 @@ from PhysicsTools.PatAlgos.tools.pfTools import *
 
 postfix = "PFlow"
 jetAlgo="AK5"
-usePF2PAT(process,runPF2PAT=True, jetAlgo=jetAlgo, runOnMC=True, postfix=postfix)
+usePF2PAT(process,runPF2PAT=True, jetAlgo=jetAlgo, runOnMC=(not options.runOnData), postfix=postfix,jetCorrections=('AK5PFchs', ['L1FastJet','L2Relative','L3Absolute']) if not options.runOnData else ('AK5PFchs', ['L1FastJet','L2Relative','L3Absolute','L2L3Residual']) )
+
+if options.runOnData:
+  from PhysicsTools.PatAlgos.tools.coreTools import runOnData # replaced by usePF2PAT with runOnMC
+  runOnData(process, names = [ 'PFAll' ] , postfix = postfix )
+
 
 # to turn on type-1 MET corrections, use the following call
 #usePF2PAT(process,runPF2PAT=True, jetAlgo=jetAlgo, runOnMC=True, postfix=postfix, typeIMetCorrections=True)
@@ -86,7 +99,7 @@ usePF2PAT(process,runPF2PAT=True, jetAlgo=jetAlgo, runOnMC=True, postfix=postfix
 
 # Let it run
 process.p = cms.Path(
-#    process.patDefaultSequence  +
+#    process.patDefaultSequence  
     getattr(process,"patPF2PATSequence"+postfix)
 #    second PF2PAT
 #    + getattr(process,"patPF2PATSequence"+postfix2)

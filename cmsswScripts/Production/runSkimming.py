@@ -7,8 +7,10 @@ sys.path.append(os.getenv('CMSSW_BASE')+'/MyCMSSWAnalysisTools/Tools')
 import  cmsswAnalysisTools
 import samples
 print "executing "," ".join(sys.argv)
-cfg = os.getenv('CMSSW_BASE')+'/FWLitePython/cmsswScripts/runPATwithPFBReco_cfg.py'
+cfg = os.getenv('CMSSW_BASE')+'/FWLitePython/cmsswScripts/runPATwithPFBReco_Skim.py'
 myAnalysis = cmsswAnalysisTools.cmsswAnalysis(samples.files,cfg)
+if "SingleMu__Run2012A-22Jan2013-v1__AOD" in sys.argv:
+  sys.argv.append('--runOnData')
 myAnalysis.readOpts()
 myAnalysis.startAnalysis()
 
