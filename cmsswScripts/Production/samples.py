@@ -8,7 +8,7 @@ files = {
     ,"color":ROOT.kBlack+1
     #,"addOptions":"runOnData=True"
     ,"crabConfig":{
-          "CMSSW":{ 'dbs_url':'phys03' }
+          "CMSSW":{ 'dbs_url':'phys03',"lumis_per_job":35,"total_number_of_lumis" : -1 }
           #"CMSSW":{"number_of_jobs":1500}
           #"GRID":{"se_white_list":"T2_DE_RWTH"}
           ,'USER':{"publish_data": 1,"publish_data_name" : "SoftJetSkim"}
