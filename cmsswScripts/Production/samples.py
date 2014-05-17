@@ -1,21 +1,22 @@
 import ROOT,os
 files = {
-  #"MultiJet__Run2012A-22Jan2013-v1__AOD": {
-  #  "localFile": ['/store/data/Run2012A/MultiJet/AOD/22Jan2013-v1/20000/0036C47E-0B74-E211-B992-00266CF32684.root']    ,"backupLocalFile":"/user/hoehle/CMSSW/TEMP/Samples/0051A2ED-482A-E111-9863-0026189438F7.root", "label":"MultiJetData"
-  #  ,"datasetName":'/MultiJet/Run2012A-22Jan2013-v1/AOD'
-  #  ,"xSec":1
-  #  ,"color":ROOT.kBlack+1
-  #  ,"addOptions":"runOnData=True"
-  #  ,"crabConfig":{
-  #        "CMSSW":{"lumis_per_job":5,"total_number_of_lumis" : -1,"lumi_mask":os.getenv('CMSSW_BASE')+'/FWLitePython/cmsswScripts/Production/jsonFiles/'+'GoldenJSON_MultiJetsRunA2012_JSON.txt'}
-  #        #"CMSSW":{"number_of_jobs":1500}
-  #        #"GRID":{"se_white_list":"T2_DE_RWTH"}
-  #        #https://cms-service-dqm.web.cern.ch/cms-service-dqm/CAF/certification/Collisions12/8TeV/Reprocessing/Cert_190456-208686_8TeV_22Jan2013ReReco_Collisions12_JSON.txt
-  #        ,'USER':{"publish_data": 1,"publish_data_name" : "BScSkim_MultiJetData"}
-  #  }
-  #}
-  "SingleMu__Run2012A-22Jan2013-v1__AOD":{
-    "localFile": ['/store/data/Run2012A/SingleMu/AOD/22Jan2013-v1/20000/002F5062-346F-E211-BF00-1CC1DE04DF20.root'], "label":"SingleMuData"
+  "SingleMu__hoehle-BScSkim_SingleMuData-bd22b76fe02f0bcf6d005e3433b8e12b__USER":{
+    "label":"SingleMu_Trigger_SoftJetSim"
+    ,"datasetName":"/SingleMu/hoehle-BScSkim_SingleMuData-bd22b76fe02f0bcf6d005e3433b8e12b/USER" 
+    ,"localFile":['/store/user/hoehle/SingleMu/BScSkim_SingleMuData/bd22b76fe02f0bcf6d005e3433b8e12b/MultiJet-Run2012A_patTuple_SingleMu__Run2012A-22Jan2013-v1__AOD_120_1_t6S.root']
+    ,"xSec":1
+    ,"color":ROOT.kBlack+1
+    #,"addOptions":"runOnData=True"
+    ,"crabConfig":{
+          "CMSSW":{ 'dbs_url':'phys03' }
+          #"CMSSW":{"number_of_jobs":1500}
+          #"GRID":{"se_white_list":"T2_DE_RWTH"}
+          ,'USER':{"publish_data": 1,"publish_data_name" : "SoftJetSkim"}
+    }
+  }
+  ,"SingleMu__Run2012A-22Jan2013-v1__AOD":{
+    "label":"SingleMuData"
+    ,"localFile": ['/store/data/Run2012A/SingleMu/AOD/22Jan2013-v1/20000/002F5062-346F-E211-BF00-1CC1DE04DF20.root'], "label":"SingleMuData"
     ,"datasetName":'/SingleMu/Run2012A-22Jan2013-v1/AOD'
     ,"xSec":1
     ,"color":ROOT.kBlack+1
