@@ -1,4 +1,5 @@
 import FWCore.ParameterSet.Config as cms
+import sys
 from FWCore.ParameterSet.VarParsing import VarParsing
 options = VarParsing ('analysis')
 options.register ('eventsToProcess',
@@ -7,8 +8,17 @@ options.register ('eventsToProcess',
                    VarParsing.varType.string,
                    "Events to process")
 options.register('runOnData',False,VarParsing.multiplicity.singleton,VarParsing.varType.bool,'runOnData')
+options.register('runRange','',VarParsing.multiplicity.singleton,VarParsing.varType.string,'runRange used for running on data to estimate trigger')
+print "args ",sys.argv
 options.parseArguments()
-
+import re
+reRunRange = re.match('^([0-9]+)-([0-9]+)$',options.runRange)
+print "options.runRange",options.runRange
+minRun = None ; maxRun = None
+if options.runOnData:
+  if not reRunRange or len(reRunRange.groups()) != 2 :
+    sys.exit('runRange wrong should be 123-234')
+  minRun=int(reRunRange.group(1));maxRun=int(reRunRange.group(2))
 process = cms.Process("PAT")
 
 ## MessageLogger

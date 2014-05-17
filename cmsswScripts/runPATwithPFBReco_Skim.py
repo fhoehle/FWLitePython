@@ -12,14 +12,19 @@ if hasattr(process,'resetHistory'): process.resetHistory()
 ### ------------------------- ###
 #################################
 #################################
-
+trigger = 'HLT_IsoMu24_eta2p1_v*'
+triggersUsedForAnalysis = { 'singleMuon':{
+		'data' : {trigger:[190456,193621]},
+		'mc' : trigger
+	}
+}
 ####trigger########
 process.triggerCheck = cms.EDFilter("TriggerResultsFilter",
     l1tIgnoreMask = cms.bool(False),
     l1tResults = cms.InputTag(""),
     l1techIgnorePrescales = cms.bool(False),
     hltResults = cms.InputTag("TriggerResults","","HLT"),
-    triggerConditions = cms.vstring('HLT_IsoMu24_eta2p1_v*'),
+    triggerConditions = cms.vstring(trigger),
     throw = cms.bool(False),
     daqPartitions = cms.uint32(1)
 )
