@@ -30,4 +30,4 @@ triggerCheck = cms.EDFilter("TriggerResultsFilter",
 )
 process.triggerCheck = triggerCheck
 process.source.fileNames = ['/store/data/Run2012A/SingleMu/AOD/22Jan2013-v1/20000/002F5062-346F-E211-BF00-1CC1DE04DF20.root']
-process.p += process.triggerCheck
+process.p.insert(0,process.triggerCheck)
