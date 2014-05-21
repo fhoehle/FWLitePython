@@ -39,14 +39,16 @@ process.out = cms.OutputModule("PoolOutputModule",
                                )
 process.outpath = cms.EndPath(process.out)
 #############
-process.mySoftJets = cms.EDFilter("PATJetSelector",
+mySoftJets = cms.EDFilter("PATJetSelector",
     src = cms.InputTag("selectedPatJetsPFlow"),
     cut = cms.string("pt > 15")
 ) 
-process.softJetsCounter =  cms.EDFilter("PATCandViewCountFilter",
+process.mySoftJets = mySoftJets
+softJetsCounter =  cms.EDFilter("PATCandViewCountFilter",
      minNumber = cms.uint32(4),     maxNumber = cms.uint32(999999),
      src = cms.InputTag("mySoftJets")
  )
+process.softJetsCounter = softJetsCounter
 # load the PAT config
 # Let it run
 process.p = cms.Path(
