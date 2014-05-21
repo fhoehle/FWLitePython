@@ -16,7 +16,7 @@ files = {
   }
   ,"SingleMu__Run2012A-22Jan2013-v1__AOD":{
     "label":"SingleMuData"
-    ,"localFile": ['/store/data/Run2012A/SingleMu/AOD/22Jan2013-v1/20000/002F5062-346F-E211-BF00-1CC1DE04DF20.root'], "label":"SingleMuData"
+    ,"localFile": ['/store/data/Run2012A/SingleMu/AOD/22Jan2013-v1/20000/002F5062-346F-E211-BF00-1CC1DE04DF20.root'], "label":"SingleMuRunAData"
     ,"datasetName":'/SingleMu/Run2012A-22Jan2013-v1/AOD'
     ,"xSec":1
     ,"color":ROOT.kBlack+1
@@ -54,6 +54,19 @@ files = {
           #"CMSSW":{"number_of_jobs":1500}
           #"GRID":{"se_white_list":"T2_DE_RWTH"}
           'USER':{"publish_data": 1,"publish_data_name" : "BScSkim_TTJets"}
+    }
+  }
+  ,'TTJets_TuneZ2star_8TeV-madgraph-tauola__fhohle-BScSkim_TTJets-10916883f87702ed6d1a4822bbfe7433__USER':{
+    'label':"TTJetsTrigSkim"
+    ,"localFile":['/store/user/fhohle/TTJets_TuneZ2star_8TeV-madgraph-tauola/BScSkim_TTJets/10916883f87702ed6d1a4822bbfe7433/TTTT_TuneZ2star_8TeV-madgraph-tauola_patTuple_TTJets_TuneZ2star_8TeV-madgraph-tauola__Summer12-PU_S8_START52_V9-v1__AODSIM_100_1_7nl.root']
+    ,"datasetName":'/TTJets_TuneZ2star_8TeV-madgraph-tauola/fhohle-BScSkim_TTJets-10916883f87702ed6d1a4822bbfe7433/USER'
+    ,"xSec":1
+    ,"color":ROOT.kRed+1
+    #,"addOptions":""
+    ,"crabConfig":{
+          "CMSSW":{ 'dbs_url':'phys03'}
+          #"GRID":{"se_white_list":"T2_DE_RWTH"}
+          ,'USER':{"publish_data": 1,"publish_data_name" : "BScSkim_TTJetsTrigSkim"}
     }
   }
 }
