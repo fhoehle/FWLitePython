@@ -2,6 +2,8 @@ import FWCore.ParameterSet.Config as cms
 import sys
 from FWCore.ParameterSet.VarParsing import VarParsing
 options = VarParsing ('analysis')
+options.register('runOnData',False,VarParsing.multiplicity.singleton,VarParsing.varType.bool,'runOnData')
+options.register('runRange','',VarParsing.multiplicity.singleton,VarParsing.varType.string,'runRange used for running on data to estimate trigger')
 print "args ",sys.argv
 options.parseArguments()
 process = cms.Process("JetSkim")

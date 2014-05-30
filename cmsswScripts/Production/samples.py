@@ -26,7 +26,22 @@ files = {
           #"CMSSW":{"number_of_jobs":1500}
           #"GRID":{"se_white_list":"T2_DE_RWTH"}
           #https://cms-service-dqm.web.cern.ch/cms-service-dqm/CAF/certification/Collisions12/8TeV/Reprocessing/Cert_190456-208686_8TeV_22Jan2013ReReco_Collisions12_JSON.txt
-          ,'USER':{"publish_data": 1,"publish_data_name" : "BScSkim_SingleMuData"}
+          ,'USER':{"publish_data": 1,"publish_data_name" : "BScSkim_SingleMuRunAData"}
+    }
+  }
+  ,"SingleMu__Run2012B-22Jan2013-v1__AOD":{
+    "label":"SingleMuData"
+    ,"localFile": ['/store/data/Run2012B/SingleMu/AOD/22Jan2013-v1/110000/0C57EA77-AEE3-E211-8DCA-00259073E4D4.root'], "label":"SingleMuRunBData"
+    ,"datasetName":'/SingleMu/Run2012B-22Jan2013-v1/AOD'
+    ,"xSec":1
+    ,"color":ROOT.kBlack+1
+    ,"addOptions":"runOnData=True"
+    ,"crabConfig":{
+          "CMSSW":{"lumis_per_job":5,"total_number_of_lumis" : -1,"lumi_mask":os.getenv('CMSSW_BASE')+'/FWLitePython/cmsswScripts/Production/jsonFiles/'+'SingleMu__Run2012B-22Jan2013-v1__AOD__AND__Cert_190456-208686_8TeV_22Jan2013ReReco_Collisions12_JSON.txt'}
+          #"CMSSW":{"number_of_jobs":1500}
+          #"GRID":{"se_white_list":"T2_DE_RWTH"}
+          #https://cms-service-dqm.web.cern.ch/cms-service-dqm/CAF/certification/Collisions12/8TeV/Reprocessing/Cert_190456-208686_8TeV_22Jan2013ReReco_Collisions12_JSON.txt
+          ,'USER':{"publish_data": 1,"publish_data_name" : "BScSkim_SingleMuRunBData"}
     }
   }
 
@@ -43,19 +58,64 @@ files = {
           'USER':{"publish_data": 1,"publish_data_name" : "BScSkim_TTTTJets"}
     }
   }
-  ,'TTJets_TuneZ2star_8TeV-madgraph-tauola__Summer12-PU_S8_START52_V9-v1__AODSIM':{
-    'label':"TTJets"
-    ,"localFile":['/store/mc/Summer12/TTJets_TuneZ2star_8TeV-madgraph-tauola/AODSIM/PU_S8_START52_V9-v1/0000/00069C6C-77C3-E111-8C84-0030486790A0.root']
-    ,"datasetName":'/TTJets_TuneZ2star_8TeV-madgraph-tauola/Summer12-PU_S8_START52_V9-v1/AODSIM'
+#  ,'TTJets_TuneZ2star_8TeV-madgraph-tauola__Summer12-PU_S8_START52_V9-v1__AODSIM':{
+#    'label':"TTJets"
+#    ,"localFile":['/store/mc/Summer12/TTJets_TuneZ2star_8TeV-madgraph-tauola/AODSIM/PU_S8_START52_V9-v1/0000/00069C6C-77C3-E111-8C84-0030486790A0.root']
+#    ,"datasetName":'/TTJets_TuneZ2star_8TeV-madgraph-tauola/Summer12-PU_S8_START52_V9-v1/AODSIM'
+#    ,"xSec":1
+#    ,"color":ROOT.kRed+1
+#    #,"addOptions":""
+#    ,"crabConfig":{
+#          #"CMSSW":{"number_of_jobs":1500}
+#          #"GRID":{"se_white_list":"T2_DE_RWTH"}
+#          'USER':{"publish_data": 1,"publish_data_name" : "BScSkim_TTJets"}
+#    }
+#  }
+  ,'TTJets_FullLeptMGDecays_8TeV-madgraph-tauola__Summer12_DR53X-PU_S10_START53_V7C-v2i__AODSIM':{
+    'label':'TTJets_fullLep'
+    ,'localFile' : None
+    ,'datasetName' : '/TTJets_FullLeptMGDecays_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V7C-v2/AODSIM'
     ,"xSec":1
     ,"color":ROOT.kRed+1
-    #,"addOptions":""
+#    #,"addOptions":""
     ,"crabConfig":{
-          #"CMSSW":{"number_of_jobs":1500}
+          "CMSSW":{"total_number_of_events":110000}
           #"GRID":{"se_white_list":"T2_DE_RWTH"}
-          'USER':{"publish_data": 1,"publish_data_name" : "BScSkim_TTJets"}
-    }
+          ,'USER':{"publish_data": 1,"publish_data_name" : "BScSkim_TTJets_fullLep"}
+    } 
   }
+  ,'TTJets_SemiLeptMGDecays_8TeV-madgraph-tauola__Summer12_DR53X-PU_S10_START53_V7C-v1__AODSIM':{
+    'label':'TTJets_semiLep'
+    ,'datasetName':'/TTJets_SemiLeptMGDecays_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V7C-v1/AODSIM'
+     ,"xSec":1
+    ,"color":ROOT.kRed+1
+#    #,"addOptions":""
+    ,"crabConfig":{
+          "CMSSW":{"total_number_of_events":450000}
+          #"GRID":{"se_white_list":"T2_DE_RWTH"}
+          ,'USER':{"publish_data": 1,"publish_data_name" : "BScSkim_TTJets_semiLep"}
+    } 
+   
+  }
+  ,'TTJets_HadronicMGDecays_8TeV-madgraph__Summer12_DR53X-PU_S10_START53_V7A-v1__AODSIM':
+  {'label':'TTJets_fullHad'
+    ,'datasetName':'/TTJets_HadronicMGDecays_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM'
+      ,"xSec":1
+    ,"color":ROOT.kRed+1
+#    #,"addOptions":""
+    ,"crabConfig":{
+          "CMSSW":{"total_number_of_events":450000}
+          #"GRID":{"se_white_list":"T2_DE_RWTH"}
+          ,'USER':{"publish_data": 1,"publish_data_name" : "BScSkim_TTJets_fullHad"}
+    } 
+   
+  }   
+
+
+
+
+
+
   ,'TTJets_TuneZ2star_8TeV-madgraph-tauola__fhohle-BScSkim_TTJets-10916883f87702ed6d1a4822bbfe7433__USER':{
     'label':"TTJetsTrigSkim"
     ,"localFile":['/store/user/fhohle/TTJets_TuneZ2star_8TeV-madgraph-tauola/BScSkim_TTJets/10916883f87702ed6d1a4822bbfe7433/TTTT_TuneZ2star_8TeV-madgraph-tauola_patTuple_TTJets_TuneZ2star_8TeV-madgraph-tauola__Summer12-PU_S8_START52_V9-v1__AODSIM_100_1_7nl.root']

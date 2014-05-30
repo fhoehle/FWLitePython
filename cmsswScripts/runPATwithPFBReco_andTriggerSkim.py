@@ -14,7 +14,7 @@ if hasattr(process,'resetHistory'): process.resetHistory()
 #################################
 trigger = 'HLT_IsoMu24_eta2p1_v*'
 triggersUsedForAnalysis = { 'singleMuon':{
-		'data' : {trigger:[190456,193621]},
+		'data' : {trigger:[190456,196531]},
 		'mc' : trigger
 	}
 }
