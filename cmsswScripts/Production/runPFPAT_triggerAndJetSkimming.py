@@ -9,7 +9,8 @@ import samples
 print "executing "," ".join(sys.argv)
 cfg = os.getenv('CMSSW_BASE')+'/FWLitePython/cmsswScripts/runPATwithPFBReco_andTriggerJetSkim.py'
 myAnalysis = cmsswAnalysisTools.cmsswAnalysis(samples.files,cfg)
-if "SingleMu__Run2012A-22Jan2013-v1__AOD" in sys.argv or "SingleMu__Run2012B-22Jan2013-v1__AOD":
+dataSamples = [ "SingleMu__Run2012A-22Jan2013-v1__AOD" , "SingleMu__Run2012B-22Jan2013-v1__AOD"]
+if sum( [dS in sys.argv for dS in dataSamples] ) >0:
   sys.argv.append('--runOnData')
 myAnalysis.readOpts()
 myAnalysis.startAnalysis()

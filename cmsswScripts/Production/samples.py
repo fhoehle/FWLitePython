@@ -71,7 +71,7 @@ files = {
 #          'USER':{"publish_data": 1,"publish_data_name" : "BScSkim_TTJets"}
 #    }
 #  }
-  ,'TTJets_FullLeptMGDecays_8TeV-madgraph-tauola__Summer12_DR53X-PU_S10_START53_V7C-v2i__AODSIM':{
+  ,'TTJets_FullLeptMGDecays_8TeV-madgraph-tauola__Summer12_DR53X-PU_S10_START53_V7C-v2__AODSIM':{
     'label':'TTJets_fullLep'
     ,'localFile' : None
     ,'datasetName' : '/TTJets_FullLeptMGDecays_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V7C-v2/AODSIM'
@@ -87,7 +87,8 @@ files = {
   ,'TTJets_SemiLeptMGDecays_8TeV-madgraph-tauola__Summer12_DR53X-PU_S10_START53_V7C-v1__AODSIM':{
     'label':'TTJets_semiLep'
     ,'datasetName':'/TTJets_SemiLeptMGDecays_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V7C-v1/AODSIM'
-     ,"xSec":1
+    ,'localFile' : None
+    ,"xSec":1
     ,"color":ROOT.kRed+1
 #    #,"addOptions":""
     ,"crabConfig":{
@@ -100,7 +101,8 @@ files = {
   ,'TTJets_HadronicMGDecays_8TeV-madgraph__Summer12_DR53X-PU_S10_START53_V7A-v1__AODSIM':
   {'label':'TTJets_fullHad'
     ,'datasetName':'/TTJets_HadronicMGDecays_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM'
-      ,"xSec":1
+    ,'localFile' : None
+    ,"xSec":1
     ,"color":ROOT.kRed+1
 #    #,"addOptions":""
     ,"crabConfig":{
