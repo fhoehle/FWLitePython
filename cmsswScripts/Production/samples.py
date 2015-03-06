@@ -112,12 +112,32 @@ files = {
     } 
    
   }   
-
-
-
-
-
-
+  ,'ZZTo4tau_8TeV-powheg-pythia6__Summer12_DR53X-PU_S10_START53_V7A-v1__AODSIM':{
+    'label':'ZZTo4tau_8TeV-powheg-pythia6'
+    ,'datasetName':'/ZZTo4tau_8TeV-powheg-pythia6/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM'
+    ,"xSec":0.0093807994 # 8.26*0.0337*0.0337
+    ,'localFile' : None
+    ,"color":ROOT.kRed+1
+#    #,"addOptions":""
+    ,"crabConfig":{
+          "CMSSW":{"total_number_of_events":10000}
+          #"GRID":{"se_white_list":"T2_DE_RWTH"}
+          ,'USER':{"publish_data": 1,"publish_data_name" : "BScSkim_ZZTo4tau"}
+    }
+  }
+  ,'ZZJetsTo4L_TuneZ2star_8TeV-madgraph-tauola__Summer12_DR53X-PU_S10_START53_V7A-v1__AODSIM':{
+    'label':'ZZJetsTo4L_TuneZ2star_8TeV-madgraph-tauola'
+    ,'datasetName':'/ZZJetsTo4L_TuneZ2star_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM'
+    ,'xSec':8.26 #  or 7.6  https://twiki.cern.ch/twiki/bin/viewauth/CMS/StandardModelCrossSectionsat8TeV
+    ,'localFile' : None
+    ,"color":ROOT.kRed+1
+#    #,"addOptions":""
+    ,"crabConfig":{
+          "CMSSW":{"total_number_of_events":100000}
+          #"GRID":{"se_white_list":"T2_DE_RWTH"}
+          ,'USER':{"publish_data": 1,"publish_data_name" : "BScSkim_ZZJetsTo4L"}
+    } 
+  }
   ,'TTJets_TuneZ2star_8TeV-madgraph-tauola__fhohle-BScSkim_TTJets-10916883f87702ed6d1a4822bbfe7433__USER':{
     'label':"TTJetsTrigSkim"
     ,"localFile":['/store/user/fhohle/TTJets_TuneZ2star_8TeV-madgraph-tauola/BScSkim_TTJets/10916883f87702ed6d1a4822bbfe7433/TTTT_TuneZ2star_8TeV-madgraph-tauola_patTuple_TTJets_TuneZ2star_8TeV-madgraph-tauola__Summer12-PU_S8_START52_V9-v1__AODSIM_100_1_7nl.root']
